@@ -1,3 +1,41 @@
+<?php
+
+    require __DIR__ . '/../vendor/autoload.php';
+
+    use Respect\Validation\Validator as v;
+    use libphonenumber\PhoneNumberUtil;
+    
+$username = v::alnum('-')->noWhitespace()->length(3, 20);
+if (!$username->validate($_POST['email'])) {
+    echo 'Invalid Username';
+}
+
+$email = v::email();
+if (!$email->validate($_POST['email'])) {
+    echo 'Invalid Email';
+}
+
+$password = v::alnum('-')->noWhitespace()->length(5, 20);
+if (!$password->validate($_POST['password'])) {
+    echo "Invalid Password. Must be between 5-20 characters and have no space.";
+}
+
+if ($_POST['password'] !== $_POST['confirm-password']) {
+    echo "Passwords Don't Match";
+}
+
+$phone = v::phone();
+if (!$phone->validate($_POST['phone'])) {
+    echo "Invalid Phone Number";
+}
+
+$gender = $_POST['gender'];
+if (!$gender == NULL) {
+    echo "Choose a Gender";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +52,7 @@
 <body>
     <?php include '../navbar.php'?>
     <div class="container container-lg">
-        <form class="register-form col-md-6 mx-auto" action="register.php" method="post">
+        <form class="register-form col-md-6 mx-auto" action="./Register" method="post">
             <h2 class="text-center mb-4">REGISTER</h2>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
@@ -37,7 +75,7 @@
                 <input type="tel" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="mb-3">
-                <label for="gender" class="form-label d-block">Genitalia</label>
+                <label for="gender" class="form-label d-block">Gender</label>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
                     <label class="form-check-label" for="male">pp?</label>
