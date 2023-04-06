@@ -1,4 +1,5 @@
 <?php
+
     require __DIR__ . '/../vendor/autoload.php';
 
     use Dotenv\Dotenv;
@@ -19,4 +20,5 @@
 
         return json_decode($response, true) ?: false;
     }
+
 ?>

@@ -1,4 +1,5 @@
 <?php
+
     require __DIR__ . '/../vendor/autoload.php';
 
     use Dotenv\Dotenv;
@@ -20,4 +21,5 @@
         print "Error: " . $e->getMessage();
         die();
     }
+
 ?>

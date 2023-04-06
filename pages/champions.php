@@ -1,9 +1,11 @@
 <?php
+
     $data = file_get_contents('https://ddragon.leagueoflegends.com/cdn/13.6.1/data/en_US/champion.json?');
     $json = json_decode($data, true);
 
     $iconURL = "https://ddragon.leagueoflegends.com/cdn/13.6.1/img/champion/";
     $championWiki = "https://www.leagueoflegends.com/en-us/champions/";
+    
 ?>
 
 <!DOCTYPE html>

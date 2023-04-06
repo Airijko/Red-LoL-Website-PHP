@@ -1,4 +1,5 @@
-<?php 
+<?php
+
   require __DIR__ . '/../vendor/autoload.php';
 
   use Dotenv\Dotenv;
@@ -19,5 +20,6 @@
     header('WWW-Authenticate: Basic realm="Our Blog"'); 
     exit("Access Denied: Username and password required."); 
   } 
+  
 ?>
 

@@ -5,34 +5,34 @@
     use Respect\Validation\Validator as v;
     use libphonenumber\PhoneNumberUtil;
     
-$username = v::alnum('-')->noWhitespace()->length(3, 20);
-if (!$username->validate($_POST['email'])) {
-    echo 'Invalid Username';
-}
+    $username = v::alnum('-')->noWhitespace()->length(3, 20);
+    if (!$username->validate($_POST['email'])) {
+        echo 'Invalid Username';
+    }
 
-$email = v::email();
-if (!$email->validate($_POST['email'])) {
-    echo 'Invalid Email';
-}
+    $email = v::email();
+    if (!$email->validate($_POST['email'])) {
+        echo 'Invalid Email';
+    }
 
-$password = v::alnum('-')->noWhitespace()->length(5, 20);
-if (!$password->validate($_POST['password'])) {
-    echo "Invalid Password. Must be between 5-20 characters and have no space.";
-}
+    $password = v::alnum('-')->noWhitespace()->length(5, 20);
+    if (!$password->validate($_POST['password'])) {
+        echo "Invalid Password. Must be between 5-20 characters and have no space.";
+    }
 
-if ($_POST['password'] !== $_POST['confirm-password']) {
-    echo "Passwords Don't Match";
-}
+    if ($_POST['password'] !== $_POST['confirm-password']) {
+        echo "Passwords Don't Match";
+    }
 
-$phone = v::phone();
-if (!$phone->validate($_POST['phone'])) {
-    echo "Invalid Phone Number";
-}
+    $phone = v::phone();
+    if (!$phone->validate($_POST['phone'])) {
+        echo "Invalid Phone Number";
+    }
 
-$gender = $_POST['gender'];
-if (!$gender == NULL) {
-    echo "Choose a Gender";
-}
+    $gender = $_POST['gender'];
+    if (!$gender == NULL) {
+        echo "Choose a Gender";
+    }
 
 ?>
 
