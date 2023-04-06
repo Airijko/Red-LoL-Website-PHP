@@ -1,6 +1,6 @@
 <?php
 
-require "riotAPI.php";
+require "backend/riotAPI.php";
 require "vendor/autoload.php";
 
 $searchProfile = "";
