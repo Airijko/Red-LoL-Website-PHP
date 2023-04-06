@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Rewrite /champions to /pages/champions.php
+RewriteRule ^Champions$ pages/champions.php [L]
+
+# Rewrite /posts to /pages/posts.php
+RewriteRule ^Posts$ pages/posts.php [L]
+
+# Rewrite /login to /login.php
+RewriteRule ^Login$ pages/login.php [L]
