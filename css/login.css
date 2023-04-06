@@ -1,0 +1,28 @@
+* {
+    color: rgb(221, 221, 221);
+}
+
+body {
+    background: url('../images/bloodmoon.jpg');
+    background-size: cover;
+}
+  
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+}
+
+.login-form, .register-form {
+    background-image: url('../images/RedThemeWallpaper.webp');
+    background-size: cover;
+    border: white solid 1px;
+    border-radius: 25px;
+    padding: 50px;
+}
+
+.register-form {
+    margin-top: 250px;
+}

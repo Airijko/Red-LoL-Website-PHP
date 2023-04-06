@@ -8,3 +8,6 @@ RewriteRule ^Posts$ pages/posts.php [L]
 
 # Rewrite /login to /login.php
 RewriteRule ^Login$ pages/login.php [L]
+
+# Rewrite /register to /register.php
+RewriteRule ^Register$ pages/register.php [L]

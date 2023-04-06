@@ -1,7 +1,3 @@
-<head>
-    <link href="css/global.css" type="text/css" rel="stylesheet">
-</head>
-
 <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
 <div class="container-fluid">
   <a class="navbar-brand" href="./">

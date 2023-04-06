@@ -1,30 +1,35 @@
-.home {
+body {
   background-image: url("../images/bloodmoon.jpg");
   background-size: cover;
-  height: 100vh;
 }
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 80vh;
+}
+
 h1 {
   font-weight: bold;
   color: white;
   text-shadow: 0 0 10px black;
 }
+
 form {
   width: 70%;
 }
+
 form .input-group {
   height: 45px;
   width: 100%;
 }
+
 .container-fluid.home form .btn {
   border-left: rgb(196, 196, 196) solid 1px;
 }
-.container-lg {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+
 .data {
   display: flex;
   justify-content: center;
