@@ -6,11 +6,11 @@
   background-color: #b91c1c;
 }
 
-#logo {
+#navlogo {
   width: 20px;
 }
 
-#logobutton {
+#navlogobutton {
   background-color: white;
 }
 
@@ -24,3 +24,57 @@ body {
   margin-left: 15px;
 }
 
+.container-login form, .container-register form {
+  position: relative;
+}
+
+.exit-button {
+  background: none;
+  border: none;
+  position: absolute;
+  margin: 10px;
+  top: 0;
+  right: 0;
+  color: white;
+}
+
+.login-form, .register-form {
+  background-image: url('../images/RedThemeWallpaper.webp');
+  background-size: cover;
+  border: white solid 1px;
+  border-radius: 25px;
+  padding: 50px;
+}
+
+#login-form, #register-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.login-form, .register-form {
+  width: 500px;
+  transform: scale(0.7);
+}
+
+.link-button {
+  background: none;
+  border: none;
+
+  color: rgb(135, 221, 255);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  color: rgb(28, 28, 124);
+  text-decoration: none;
+}

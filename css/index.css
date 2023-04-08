@@ -3,6 +3,19 @@ body {
   background-size: cover;
 }
 
+#logo {
+  width: 20px;
+}
+
+#logobutton {
+  background-color: white;
+  border: none;
+  width: 50px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
 .home {
   display: flex;
   justify-content: center;
@@ -21,13 +34,12 @@ form {
   width: 70%;
 }
 
-form .input-group {
+.search-group {
   height: 45px;
   width: 100%;
-}
-
-.container-fluid.home form .btn {
-  border-left: rgb(196, 196, 196) solid 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .data {
@@ -49,4 +61,3 @@ h3, p {
 p {
   padding-top: 15px;
 }
-

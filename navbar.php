@@ -28,13 +28,13 @@
       <form class="d-flex" role="search">
         <div class="input-group">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit" id="logobutton">
-            <img src="images/logo.png" alt="logo" id="logo">
+          <button class="btn btn-outline-light" type="submit" id="navlogobutton">
+            <img src="images/logo.png" alt="logo" id="navlogo">
           </button>
         </div>
       </form>
     <?php } ?>
-    <a class="login-btn btn btn-outline-light btn-danger" href="./Login">
+    <a class="login-btn btn btn-outline-light btn-danger" onclick="toggleLoginForm()">
       Login
     </a>
   </div>

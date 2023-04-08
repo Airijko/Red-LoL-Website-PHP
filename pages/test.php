@@ -1,10 +1,3 @@
-<?php 
-
-  include '../validation/formValidation.php';
-  include 'login.php'; 
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +5,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/global.css" type="text/css" rel="stylesheet">
         <script src="js/login.js"></script>
+        <?php include '../validation/formValidation.php'; ?>
+        <?php include 'login.php' ?>
     </head>
     <body>
         <?php include '../navbar.php'; ?>
