@@ -8,7 +8,8 @@
 
     include '../validation/formValidation.php';
     include 'login.php'; 
-    
+    include 'register.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@
     <link href="css/global.css" type="text/css" rel="stylesheet">
     <link href="css/champions.css" type="text/css" rel="stylesheet">
     <script src="js/login.js"></script>
+    <script src="js/login-register-form.js"></script>
     <title>Document</title>
 </head>
 <body>

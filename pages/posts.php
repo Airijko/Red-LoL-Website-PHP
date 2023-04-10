@@ -1,7 +1,8 @@
 <?php 
 
-  include '../validation/formValidation.php';
+  include '../validation/registerValidation.php';
   include 'login.php'; 
+  include 'register.php'; 
 
 ?>
 
@@ -11,7 +12,7 @@
         <title>Sign Up</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="css/global.css" type="text/css" rel="stylesheet">
-        <script src="js/login.js"></script>
+        <script src="js/login-register-form.js"></script>
     </head>
     <body>
         <?php include '../navbar.php'; ?>

@@ -25,7 +25,7 @@
       </li>
     </ul>
     <?php if (basename($_SERVER['SCRIPT_NAME']) != 'index.php') { ?>
-      <form class="d-flex" role="search">
+      <form class="d-flex m-0" role="search">
         <div class="input-group">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light" type="submit" id="navlogobutton">
