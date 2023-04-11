@@ -34,7 +34,7 @@
         </div>
       </form>
     <?php } ?>
-    <a class="login-btn btn btn-outline-light btn-danger" onclick="toggleLoginForm()">
+    <a class="login-btn btn btn-outline-light" btn-danger data-bs-toggle="modal" href="#toggleLoginModal" role="button">
       Login
     </a>
   </div>

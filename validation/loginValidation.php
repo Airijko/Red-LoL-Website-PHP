@@ -9,7 +9,7 @@ use Respect\Validation\Validator as v;
 $errors = array();
 
 if (isset($_POST['username'])) {
-    $usernameValidator = v::notEmpty()->length(3, 35);
+    $usernameValidator = v::notEmpty()->length(3, 25);
     if (!$usernameValidator->validate($_POST['username'])) {
         $errors['username'] = "Invalid Username";
     }
@@ -20,6 +20,10 @@ if (isset($_POST['password'])) {
     if (!$passwordValidator->validate($_POST['password'])) {
         $errors['password'] = "Invalid Password";
     }
+}
+
+if (!empty($errors)) {
+    echo json_encode($errors);
 }
 
 ?>

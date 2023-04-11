@@ -24,13 +24,13 @@ body {
   height: 80vh;
 }
 
-h1 {
+.playerSearchTitle {
   font-weight: bold;
   color: white;
   text-shadow: 0 0 10px black;
 }
 
-form {
+.playerSearchForm {
   width: 70%;
 }
 
