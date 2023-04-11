@@ -71,7 +71,65 @@ registerForm.addEventListener('submit', (e) => {
 
     let errors = false;
 
+    // Validate Username
+    if (username.value.trim().length < 3 || username.value.trim().length > 25 || username.value.trim() === '') {
+        // Display the username error message and set its display to block
+        usernameError.style.display = "block";
+        errors = true;
+    } else {
+        // Hide the username error message by setting its display to none
+        usernameError.style.display = "none";
+    }
 
+    // Validate Email
+    if (!email.value.match(/^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/) || email.value.trim() ===
+        '') {
+        emailError.style.display = 'block';
+        errors = true;
+    } else {
+        emailError.style.display = 'none';
+    }
+
+    // Validate Password
+    if (password.value.trim().length < 6 || password.value.trim().length > 20 || password.value.trim() === '') {
+        passwordError.style.display = "block";
+        errors = true;
+    } else {
+        passwordError.style.display = 'none';
+    }
+    if (password.value.trim().length < 8 || password.value.trim().length > 128 || password.value.trim() ===
+        '') {
+        passwordError.style.display = 'block';
+        errors = true;
+    } else {
+        passwordError.style.display = 'none';
+    }
+
+    // Validate Confirm Password
+    if (confirmPassword.value.trim() === '') {
+        confirmPasswordError.style.display = 'block';
+        errors = true;
+    } else if (confirmPassword.value !== password.value) {
+        confirmPasswordError.style.display = 'block';
+        errors = true;
+    } else {
+        confirmPasswordError.style.display = 'none';
+    }
+
+    // Validate Phone
+    if (!phone.value.match(/^\d{10}$/)) {
+        phoneError.style.display = 'block';
+        errors = true;
+    } else {
+        phoneError.style.display = 'none';
+    }
+
+    // Validate Gender
+    if (gender === null) {
+        genderError.style.display = 'block';
+        genderError.textContent = 'Please select a gender';
+        errors = true;
+    }
     
     if (!errors) {
         $.ajax({
