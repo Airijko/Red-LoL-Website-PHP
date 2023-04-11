@@ -48,11 +48,10 @@ if (isset($_POST['phone'])) {
 }
 
 if (isset($_POST['gender'])) {
-    $gender = $_POST['gender'];
-    $errors['gender'] = "Please Select a Gender";
-} else {
-    $gender = NULL;
-    
+    $genderValidator = v::notEmpty();
+    if (!$genderValidator->validate($_POST['gender'])) {
+        $errors['gender'] = "Please select a gender";
+    }
 }
 
 if (!empty($errors)) {

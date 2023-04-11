@@ -86,11 +86,11 @@
                         <label for="gender" class="form-label d-block">Gender</label>
                         <div class="form-check form-check-inline">
                             <label for="male"></label>
-                            <input class="form-check-input" type="radio" name="gender" id="male" />pp?
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male"/>pp?
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="female"></label>
-                            <input class="form-check-input" type="radio" name="gender" id="female" />no pp
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female"/>no pp
                         </div>
                         <div id="genderError" style="display: none; color: red; text-shadow: 0 0 10px black;">Please
                             choose
