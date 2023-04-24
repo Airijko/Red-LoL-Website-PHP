@@ -38,21 +38,37 @@ body {
   color: white;
 }
 
-.modal-content {
+.login-modal .modal-content, .register-modal .modal-content {
   background-image: url('../images/RedThemeWallpaper.webp');
   background-size: cover;
   border: white solid 1px;
-  transform: scale(0.75);
+  transform: scale(0.8);
   border-radius: 25px;
   padding: 50px;
-  color: white;
+  color: rgb(220, 220, 220);
 }
 
-.modal-dialog {
+.login-modal .modal-dialog, .register-modal .modal-dialog {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.login-modal .input-box, .register-modal .input-box {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.login-modal .input-box .user-input, .register-modal .input-box .user-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  border-bottom: 2px solid white;
 }
 
 .link-button {

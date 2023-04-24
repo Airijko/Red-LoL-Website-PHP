@@ -1,13 +1,19 @@
 RewriteEngine On
 
-# Rewrite /champions to /pages/champions.php
+# Rewrite /champions.php to /pages/Champions
 RewriteRule ^Champions$ pages/champions.php [L]
 
-# Rewrite /posts to /pages/posts.php
+# Rewrite /posts.php to /pages/Posts
 RewriteRule ^Posts$ pages/posts.php [L]
 
-# Rewrite /login to /login.php
+# Rewrite /login.php to /Login
 RewriteRule ^Login$ pages/login.php [L]
 
-# Rewrite /register to /register.php
+# Rewrite /register.php to /Register
 RewriteRule ^Register$ pages/register.php [L]
+
+# Rewrite /edit.php to /Edit
+RewriteRule ^Edit$ pages/edit.php [L]
+
+# Rewrite /upload.php to /Upload
+RewriteRule ^Upload$ pages/upload.php [L]

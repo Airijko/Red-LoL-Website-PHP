@@ -34,9 +34,15 @@
         </div>
       </form>
     <?php } ?>
-    <a class="login-btn btn btn-outline-light" btn-danger data-bs-toggle="modal" href="#toggleLoginModal" role="button">
-      Login
-    </a>
+    <?php if (session_status() === PHP_SESSION_ACTIVE) { ?>
+      <a class="login-btn btn btn-outline-light" href="./backend/logout.php" role="button">
+        Logout
+      </a>
+    <?php } else { ?>
+      <a class="login-btn btn btn-outline-light" btn-danger data-bs-toggle="modal" href="#toggleLoginModal" role="button">
+        Login
+      </a>
+    <?php } ?>
   </div>
 </div>
 </nav>

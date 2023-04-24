@@ -1,9 +1,10 @@
 <?php
 
   require('backend/db_connect.php');
-  require('backend/authenticate.php'); 
   require('backend/riotAPI.php');
   require('vendor/autoload.php');
+
+  include 'pages/login.php';
 
   $searchProfile = !empty($_POST["searchProfile"]) ? $_POST["searchProfile"] : null;
   $playerData = array();
@@ -21,20 +22,13 @@
     }
   }
 
-  function renderData($playerData, $searchSuccess) {
+  function renderData($playerData) {
     $URL = 'http://ddragon.leagueoflegends.com/cdn/13.6.1/img/profileicon/';
-  
-    if (!$searchSuccess || $playerData == array()) {
-      return '<p>Error: Invalid Profile.</p>';
-    }
   
     return '<h3>' . $playerData["name"] . '</h3>
             <img width="150" src="' . $URL . $playerData["profileIconId"] . '.png" alt="icon" />
             <p>Summoner Level - ' . $playerData["summonerLevel"] . '</p>';
   }
-
-  include 'pages/login.php';
-  include 'validation/registerValidation.php';
   
 ?>
 
@@ -58,6 +52,7 @@
     <div id="container" class="container container-fluid home">
         <h1 class="playerSearchTitle">LOL PROFILE CARD SEARCH</h1>
         <form method="post" class="playerSearchForm">
+            <input type="hidden" name="formType" value="playerSearchForm">
             <div class="input-group">
                 <input class="form-control" type="search" placeholder="Search" name="searchProfile"
                     value="<?php echo htmlspecialchars($searchProfile); ?>" />
@@ -66,9 +61,11 @@
                 </button>
             </div>
         </form>
-        <div class="data">
-            <?= renderData($playerData, $searchSuccess); ?>
-        </div>
+        <?php if (!$searchSuccess) {
+          echo '<div class="data"><p>Error: Invalid Profile.</p></div>';
+        } else if ($playerData != array()) {
+          echo '<div class="data">' . renderData($playerData) . '</div>';
+        } ?>
     </div>
 </body>
 
