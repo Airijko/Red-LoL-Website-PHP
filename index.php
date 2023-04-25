@@ -1,5 +1,7 @@
 <?php
 
+  session_start();
+
   require('backend/db_connect.php');
   require('backend/riotAPI.php');
   require('vendor/autoload.php');

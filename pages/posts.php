@@ -1,8 +1,17 @@
 <?php
 
+    session_start();
+
+
     include '../pages/login.php';
     include '../pages/register.php';
     require('../backend/db_connect.php');
+
+    if (isset($_SESSION["username"])) {
+        echo "Logged in as: " . $_SESSION["username"];
+    } else {
+        echo "Not logged in.";
+    }
 
 ?>
 

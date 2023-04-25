@@ -1,13 +1,10 @@
 <?php
 
-    session_start();
-    if (session_status() === PHP_SESSION_ACTIVE) {
-        echo 'Session is active';
-    } else {
-    echo 'Session is not active';
-    }
-
     function loginUser($username, $password) {
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         include __DIR__ . '/../backend/db_connect.php';
 
@@ -39,4 +36,3 @@
     }
 
 ?>
-

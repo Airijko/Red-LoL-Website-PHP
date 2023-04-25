@@ -34,7 +34,7 @@
         </div>
       </form>
     <?php } ?>
-    <?php if (session_status() === PHP_SESSION_ACTIVE) { ?>
+    <?php if (isset($_SESSION["username"])) { ?>
       <a class="login-btn btn btn-outline-light" href="./backend/logout.php" role="button">
         Logout
       </a>
