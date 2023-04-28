@@ -1,0 +1,34 @@
+.main-container {
+    padding-top: 10px;
+}
+
+.reviews-container {
+    background: #0f0d0d;
+    min-height: 500px;
+    padding: 20px;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 20px;
+}
+
+.review-head {
+    background-image: url('../images/reviewhead.jpg');
+    background-size: cover;
+    width: 100%;
+    border: white solid 1px;
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+}
+
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: calc(33.33% - 20px);
+    height: 350;
+    margin: 10px;
+    color: white;
+}

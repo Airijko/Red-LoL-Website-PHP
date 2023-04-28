@@ -17,3 +17,24 @@ RewriteRule ^Edit$ pages/edit.php [L]
 
 # Rewrite /upload.php to /Upload
 RewriteRule ^Upload$ pages/upload.php [L]
+
+# Rewrite /edit-users.php to /EditUsers
+RewriteRule ^EditUsers$ pages/edit-users.php [L]
+
+# Rewrite /fullpost.php to /FullPost
+RewriteRule ^FullPost$ pages/fullpost.php [L]
+
+# Rewrite /manageFeedback.php to /ManageFeedback
+RewriteRule ^ManageFeedback$ pages/manageFeedback.php [L]
+
+# Rewrite /reviews.php to /Reviews
+RewriteRule ^Reviews$ pages/reviews.php [L]
+
+# Rewrite /submitReview.php to /SubmitReview
+RewriteRule ^SubmitReview$ pages/submitReview.php [L]
+
+# Rewrite /deleteReview.php to /DeleteReview
+RewriteRule ^DeleteReview$ pages/deleteReview.php [L]
+
+# Rewrite /sort.php to /Sort
+RewriteRule ^Sort$ pages/sort.php [L]

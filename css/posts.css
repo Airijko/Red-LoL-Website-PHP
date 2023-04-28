@@ -1,3 +1,60 @@
 label {
     color: white;
 }
+
+body {
+    background-image: url("../images/websitebackground.jpg");
+    background-size: cover;
+}
+.main-container {
+    padding: 10px;
+}
+
+
+.post-container, .sidebar-container, .options-container {
+    background: #0f0d0d;
+    padding: 20px;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 20px;
+}
+
+.card {
+    background-color: #121010;
+    color: white;
+}
+
+.card small {
+    color: rgb(74, 74, 74);
+}
+
+.edit-card-body {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* .options-container {
+    height: 150px;
+    width: 200px;
+} */
+
+.sidebar-container {
+    color: white;
+} 
+
+.posts {
+    text-align: center;
+}
+
+.post-content {
+    padding: 25px 25px;
+    border-bottom: solid 1px white;
+}
+
+.post-image img {
+    width: 50%;
+}
+
+.createPostButton {
+    margin-bottom: 30px;
+}

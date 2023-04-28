@@ -6,33 +6,23 @@
 
         // Check if email is already in use
         $sql = "SELECT * FROM users WHERE username=?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $username);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        if (mysqli_num_rows($result) > 0) {
-            mysqli_close($conn);
-            return "Username already in use.";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$username]);
+        $result = $stmt->fetch();
+        if ($stmt->rowCount() > 0) {
+            return 'Username already exists. Please choose a different username.';
         }
 
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $sql = "INSERT INTO users (username, email, password, phone, gender) VALUES (?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "sssss", $username, $email, $hashed_password, $phone, $gender);
-        $result = mysqli_stmt_execute($stmt);
+        $stmt = $db->prepare($sql);
+        $result = $stmt->execute([$username, $email, $hashed_password, $phone, $gender]);
 
         if ($result) {
-            mysqli_close($conn);
             return "Registration successful!";
         } else {
-            mysqli_close($conn);
-            return "Error: " . mysqli_error($conn);
+            return "Error: " . $db->errorInfo()[2];
         }
-
-        // Close database connection
-        mysqli_close($conn);
     }
 
-?>

@@ -24,6 +24,10 @@ body {
   margin-left: 15px;
 }
 
+.manage-btn {
+  margin-right: 15px;
+}
+
 .container-login form, .container-register form {
   position: relative;
 }

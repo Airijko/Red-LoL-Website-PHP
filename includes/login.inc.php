@@ -6,33 +6,28 @@
             session_start();
         }
 
-        include __DIR__ . '/../backend/db_connect.php';
+        require __DIR__ . '/../backend/db_connect.php';
 
         // Check if user exists
-        $sql = "SELECT * FROM users WHERE username=?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $username);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
+        $sql = "SELECT * FROM users WHERE username=:username";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
 
-        if (mysqli_num_rows($result) == 0) {
-            mysqli_close($conn);
+        if (count($result) == 0) {
             return "Username does not exist.";
         }
 
         // Verify password
-        $row = mysqli_fetch_assoc($result);
+        $row = $result[0];
         if (password_verify($password, $row['password'])) {
+            $_SESSION["id"] = $row['id'];
             $_SESSION["username"] = $row['username'];
-            mysqli_close($conn);
             return "Login successful!";
         } else {
-            mysqli_close($conn);
             return "Invalid password.";
         }
-
-        // Close database connection
-        mysqli_close($conn);
     }
 
-?>
+

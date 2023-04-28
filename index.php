@@ -53,7 +53,7 @@
     <?php include 'navbar.php'; ?>
     <div id="container" class="container container-fluid home">
         <h1 class="playerSearchTitle">LOL PROFILE CARD SEARCH</h1>
-        <form method="post" class="playerSearchForm">
+        <form method="post" class="playerSearchForm" value="playerSearch">
             <input type="hidden" name="formType" value="playerSearchForm">
             <div class="input-group">
                 <input class="form-control" type="search" placeholder="Search" name="searchProfile"

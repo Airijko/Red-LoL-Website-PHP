@@ -2,6 +2,7 @@
 
     include __DIR__ . '/../validation/loginValidation.php';
     include __DIR__ . '/../includes/login.inc.php';
+    include __DIR__ . '/../pages/register.php';
 
     function sanitize_input($input) {
         $input = trim($input);
@@ -13,19 +14,22 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $form_name = sanitize_input($_POST["formType"]);
         
-        if ($form_name == "loginForm") {
+        if ($form_name == "login") {
             $username = sanitize_input($_POST["loginUsername"]);
             $password = sanitize_input($_POST["loginPassword"]);
             $result = loginUser($username, $password);
-        } elseif ($form_name == "registerForm") {
+        } elseif ($form_name == "register") {
             $username = sanitize_input($_POST["registerUsername"]);
             $email = sanitize_input($_POST["email"]);
             $password = sanitize_input($_POST["registerPassword"]);
             $phone = sanitize_input($_POST["phone"]);
             $gender = sanitize_input($_POST["gender"]);
             $result = registerUser($username, $email, $password, $phone, $gender);
-        } elseif ($form_name == "playerSearchForm") {
+        } elseif ($form_name == "playerSearch") {
             $playerSearch = sanitize_input($_POST["searchProfile"]);
+        } elseif ($form_name == "postForm") {
+            $title = sanitize_input($_POST["title"]);
+            $content = sanitize_input($_POST["content"]);
         }
     }
     
@@ -41,7 +45,7 @@
             </div>
             <div class="modal-body">
                 <form method="post" id="loginForm" class="login-form">
-                    <input type="hidden" name="formType" value="loginForm">
+                    <input type="hidden" name="formType" value="login">
                     <div class="input-box">
                         <label for="username" class="form-label">Username</label>
                         <input class="user-input" type="text" id="loginUsername" name="loginUsername">

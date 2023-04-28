@@ -1,5 +1,5 @@
 <?php 
-
+    
     include __DIR__ . '/../validation/registerValidation.php';
     include __DIR__ . '/../includes/register.inc.php';
 
@@ -15,8 +15,7 @@
             </div>
             <div class="modal-body">
                 <form method="post" id="registerForm" class="register-form">
-                <input type="hidden" name="formType" value="register">
-                    <input type="hidden" name="formType" value="registerForm">
+                    <input type="hidden" name="formType" value="register">
                     <div class="input-box">
                         <label for="username" class="form-label">Username</label>
                         <input class="user-input" type="text" id="registerUsername" name="registerUsername">
@@ -62,12 +61,11 @@
                         <label for="gender" class="form-label d-block">Gender</label>
                         <div class="form-check form-check-inline">
                             <label for="male"></label>
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" />pp?
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" />M
                         </div>
                         <div class="form-check form-check-inline">
                             <label for="female"></label>
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" />no
-                            pp
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" />F
                         </div>
                         <div id="genderError" style="display: none; color: red; text-shadow: 0 0 10px black;">Please
                             choose
