@@ -14,4 +14,4 @@
 <img src="images/reviewsPage.jpg" alt="Customer Review Page Image">
 
 <h1>Posts Page</h1>
-<img src="readMeIMG/postsPage.jpg" alt="Posts Page Image">
+<img src="images/postsPage.jpg" alt="Posts Page Image">
