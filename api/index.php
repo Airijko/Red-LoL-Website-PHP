@@ -2,6 +2,8 @@
 
 session_start();
 
+$base_url = '';
+
 require('../backend/db_connect.php');
 require('../backend/riotAPI.php');
 require('../vendor/autoload.php');
