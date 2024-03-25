@@ -4,21 +4,21 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Respect\Validation\Validator as v;
 
-// Respect Validation Documents: https://respect-validation.readthedocs.io/en/latest/
+// Respect Validation Documents: -
 
 $errors = array();
 
-if (isset($_POST['username'])) {
+if (isset($_POST['loginUsername'])) {
     $usernameValidator = v::notEmpty()->length(3, 25);
-    if (!$usernameValidator->validate($_POST['username'])) {
-        $errors['username'] = "Invalid Username";
+    if (!$usernameValidator->validate($_POST['loginUsername'])) {
+        $errors['loginUsername'] = "Invalid Username";
     }
 }
 
-if (isset($_POST['password'])) {
+if (isset($_POST['loginPassword'])) {
     $passwordValidator = v::notEmpty()->length(8, 128);
-    if (!$passwordValidator->validate($_POST['password'])) {
-        $errors['password'] = "Invalid Password";
+    if (!$passwordValidator->validate($_POST['loginPassword'])) {
+        $errors['loginPassword'] = "Invalid Password";
     }
 }
 

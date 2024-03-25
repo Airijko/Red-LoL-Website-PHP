@@ -6,7 +6,7 @@
 ?>
 
 <div class="modal register-modal fade" id="toggleRegisterModal" aria-hidden="true"
-    aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    aria-labelledby="toggleRegisterModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,7 +17,7 @@
                 <form method="post" id="registerForm" class="register-form">
                     <input type="hidden" name="formType" value="register">
                     <div class="input-box">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="registerUsername" class="form-label">Username</label>
                         <input class="user-input" type="text" id="registerUsername" name="registerUsername">
                         <div id="usernameError" style="display: none; color: red; text-shadow: 0 0 10px black;">
                             Please
@@ -34,7 +34,7 @@
                             email address</div>
                     </div>
                     <div class="input-box">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="registerPassword" class="form-label">Password</label>
                         <input class="user-input" type="password" id="registerPassword" name="registerPassword">
                         <div id="passwordError" style="display: none; color: red; text-shadow: 0 0 10px black;">
                             Please
@@ -43,7 +43,7 @@
                             password (8 - 128 characters)</div>
                     </div>
                     <div class="input-box">
-                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
                         <input class="user-input" type="password" id="confirmPassword" name="confirmPassword">
                         <div id="confirmPasswordError" style="display: none; color: red; text-shadow: 0 0 10px black;">
                             Passwords do
@@ -58,14 +58,14 @@
                             phone number</div>
                     </div>
                     <div class="input-box">
-                        <label for="gender" class="form-label d-block">Gender</label>
+                        <label class="form-label d-block">Gender</label>
                         <div class="form-check form-check-inline">
                             <label for="male"></label>
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" />M
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male">M
                         </div>
                         <div class="form-check form-check-inline">
-                            <label for="female"></label>
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="female" />F
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">Female</label>
                         </div>
                         <div id="genderError" style="display: none; color: red; text-shadow: 0 0 10px black;">Please
                             choose

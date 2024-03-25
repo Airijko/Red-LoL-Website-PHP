@@ -2,8 +2,6 @@
 
     session_start();
 
-    include '../pages/login.php';
-
     $data = file_get_contents('https://ddragon.leagueoflegends.com/cdn/13.6.1/data/en_US/champion.json?');
     $json = json_decode($data, true);
 
@@ -29,6 +27,7 @@
 
 <body>
     <?php include '../navbar.php'; ?>
+    <?php include '../pages/login.php'; ?>
     <div id="container" class="container container-fluid champions">
         <h1>Champion List</h1>
         <div class="container-grid">

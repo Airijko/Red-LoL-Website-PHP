@@ -23,7 +23,7 @@
             $email = sanitize_input($_POST["email"]);
             $password = sanitize_input($_POST["registerPassword"]);
             $phone = sanitize_input($_POST["phone"]);
-            $gender = sanitize_input($_POST["gender"]);
+            $gender = isset($_POST["gender"]) ? sanitize_input($_POST["gender"]) : "";
             $result = registerUser($username, $email, $password, $phone, $gender);
         } elseif ($form_name == "playerSearch") {
             $playerSearch = sanitize_input($_POST["searchProfile"]);
@@ -35,7 +35,7 @@
     
 ?>
 
-<div class="modal login-modal fade" id="toggleLoginModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+<div class="modal login-modal fade" id="toggleLoginModal" aria-hidden="true" aria-labelledby="toggleLoginModal"
     tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -47,14 +47,14 @@
                 <form method="post" id="loginForm" class="login-form">
                     <input type="hidden" name="formType" value="login">
                     <div class="input-box">
-                        <label for="username" class="form-label">Username</label>
+                        <label for="loginUsername" class="form-label">Username</label>
                         <input class="user-input" type="text" id="loginUsername" name="loginUsername">
                         <div id="loginUsernameError" style="display: none; color: red; text-shadow: 0 0 10px black;">
                             Please
                             enter a username</div>
                     </div>
                     <div class="input-box">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="loginPassword" class="form-label">Password</label>
                         <input class="user-input" type="password" id="loginPassword" name="loginPassword">
                         <div id="loginPasswordError" style="display: none; color: red; text-shadow: 0 0 10px black;">
                             Please
@@ -72,5 +72,5 @@
     </div>
 </div>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

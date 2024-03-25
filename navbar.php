@@ -1,8 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-sm navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="./">
-            <img src="https://imgs.search.brave.com/58-tsSnqGtxLnb5Zn4xoNUaBkj_ex1LOG1XrwbYYFEs/rs:fit:256:256:1/g:ce/aHR0cDovL2ltZzEu/d2lraWEubm9jb29r/aWUubmV0L19fY2Iy/MDE1MDQwMjIzNDM0/My9sZWFndWVvZmxl/Z2VuZHMvaW1hZ2Vz/LzEvMTIvTGVhZ3Vl/X29mX0xlZ2VuZHNf/SWNvbi5wbmc"
-                width="40px" alt="Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/LoL_icon.svg/2048px-LoL_icon.svg.png" width="40" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +37,10 @@
             <?php } ?>
             <?php if (basename($_SERVER['SCRIPT_NAME']) != 'index.php') { ?>
             <form class="d-flex m-0" role="search" action="./" method="post">
-            <input type="hidden" name="formType" value="navsearch">
+                <input type="hidden" name="formType" value="navsearch">
                 <div class="input-group">
-                    <input class="form-control" type="search" name="searchProfile" placeholder="Search" aria-label="Search">
+                    <input class="form-control" type="search" name="searchProfile" placeholder="Search"
+                        aria-label="Search">
                     <button class="btn btn-outline-light" type="submit" id="navlogobutton">
                         <img src="images/logo.png" alt="logo" id="navlogo">
                     </button>
@@ -52,7 +52,7 @@
                 Logout
             </a>
             <?php } else { ?>
-            <a class="login-btn btn btn-outline-light" btn-danger data-bs-toggle="modal" href="#toggleLoginModal"
+            <a class="login-btn btn btn-outline-light" data-bs-toggle="modal" href="#toggleLoginModal"
                 role="button">
                 Login
             </a>

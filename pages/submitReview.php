@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
     require('../backend/db_connect.php');

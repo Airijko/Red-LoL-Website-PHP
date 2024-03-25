@@ -5,46 +5,53 @@
     require('../backend/db_connect.php');
 
     if(isset($_POST['submit'])){
+        $title = $_POST['title'];
+        $content = $_POST['content'];
         $file = $_FILES['file'];
-        print_r($file);
-        $fileName = $_FILES['file']['name'];
-        $fileTmpName = $_FILES['file']['tmp_name'];
-        $fileSize = $_FILES['file']['size'];
-        $fileError = $_FILES['file']['error'];
-        $fileType = $_FILES['file']['type'];
+        $fileNameNew = NULL;
 
-        $fileExt = explode('.', $fileName);
-        $fileActualExt = strtolower(end($fileExt));
+        if (!empty($file['name'])) {
+            $fileName = $file['name'];
+            $fileTmpName = $file['tmp_name'];
+            $fileSize = $file['size'];
+            $fileError = $file['error'];
+            $fileType = $file['type'];
 
-        $allowed = array('jpg', 'jpeg', 'png', 'gif');
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
 
-        if (!in_array($fileActualExt, $allowed)) {
-            $error = "Invalid file type";
-            header("Location: Posts?error=" . urlencode($error));
-        } elseif ($fileError !== 0) {
-            $error = "There was an error uploading your file";
-            header("Location: Posts?error=" . urlencode($error));
-        } elseif ($fileSize >= 8000000) {
-            $error = "Your file is too large";
-            header("Location: Posts?error=" . urlencode($error));
-        } else {
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-            $fileDestination = 'images/' . $fileNameNew;
-            move_uploaded_file($fileTmpName, $fileDestination);
+            $allowed = array('jpg', 'jpeg', 'png', 'gif');
 
-            // Inserts submission to database
-            $stmt = $db->prepare("INSERT INTO posts (user_id, title, content, file) VALUES (:user_id, :title, :content, :file)");
-            $user_id = $_SESSION['id'];
-            $stmt->bindParam(':user_id', $user_id);
-            $stmt->bindParam(':title', $title);
-            $stmt->bindParam(':content', $content);
-            $stmt->bindParam(':file', $fileNameNew);
-        
-            $stmt->execute();
-            header("Location: Posts?uploadsuccess");
+            if (!in_array($fileActualExt, $allowed)) {
+                $error = "Invalid file type";
+                header("Location: Posts?error=" . urlencode($error));
+                exit();
+            } elseif ($fileError !== 0) {
+                $error = "There was an error uploading your file";
+                header("Location: Posts?error=" . urlencode($error));
+                exit();
+            } elseif ($fileSize >= 8000000) {
+                $error = "Your file is too large";
+                header("Location: Posts?error=" . urlencode($error));
+                exit();
+            } else {
+                $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                $fileDestination = 'images/' . $fileNameNew;
+                move_uploaded_file($fileTmpName, $fileDestination);
+            }
         }
+
+        // Inserts submission to database
+        $stmt = $db->prepare("INSERT INTO posts (user_id, title, content, file) VALUES (:user_id, :title, :content, :file)");
+        $user_id = $_SESSION['id'];
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':content', $content);
+        $stmt->bindParam(':file', $fileNameNew);
+        
+        $stmt->execute();
+        header("Location: Posts?uploadsuccess");
+        exit();
     }
 
 ?>

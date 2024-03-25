@@ -28,6 +28,7 @@
 
 <body>
     <?php include '../navbar.php'; ?>
+    <?php include '../pages/login.php'; ?>
     <div class="container container-fluid main-container">
         <div class="row">
             <div class="col-md-2">
@@ -39,8 +40,11 @@
                 <div class="container container-lg post-container">
                     <form method="post" action="./Edit">
                         <div class="card">
+                            <?php if ($post['file'] == NULL): ?>
+                            <?php else: ?>
                             <img class="object-fit-cover" src="pages/images/<?= $post['file'] ?>" class="card-img-top"
                                 alt="<?= $post['title'] ?>">
+                            <?php endif ?>
                             <div class="card-body edit-card-body">
                                 <h1><?= $post['title']?></h1>
                                 <p><?= $post['content']?></p>

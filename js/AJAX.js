@@ -1,59 +1,58 @@
-const loginForm = document.querySelector('.login-form');
-
-loginForm.addEventListener('submit', (e) => {
-
-    const username = document.getElementById('loginUsername');
-    const password = document.getElementById('loginPassword');
-
-    const usernameError = document.getElementById('loginUsernameError');
-    const passwordError = document.getElementById('loginPasswordError');
-
-    let errors = false;
-
-    // Validate Username
-    if (username.value === '') {
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.querySelector('.login-form');
+  
+    loginForm.addEventListener('submit', (e) => {
+      const username = document.getElementById('loginUsername');
+      const password = document.getElementById('loginPassword');
+  
+      const usernameError = document.getElementById('loginUsernameError');
+      const passwordError = document.getElementById('loginPasswordError');
+  
+      let errors = false;
+  
+      // Validate Username
+      if (username.value === '') {
         usernameError.style.display = 'block';
         errors = true;
-    }
-
-    // Validate Password
-    if (password.value === '') {
+      }
+  
+      // Validate Password
+      if (password.value === '') {
         passwordError.style.display = 'block';
         errors = true;
-    }
-    
-    if (errors) {
+      }
+  
+      if (errors) {
         e.preventDefault();
-
+  
         if (Object.keys(errors).length === 0) {
-            $.ajax({
-                url: 'validation/loginValidation.php',
-                method: 'POST',
-                data: {
-                    username: username.value,
-                    password: password.value
-                },
-                dataType: 'json',
-                success: function (response) {
-                    if (Object.keys(response).length > 0) {
-                        if (response.hasOwnProperty('username')) {
-                            usernameError.style.display = 'block';
-                            usernameError.textContent = response.username;
-                        }
-                        if (response.hasOwnProperty('password')) {
-                            passwordError.style.display = 'block';
-                            passwordError.textContent = response.password;
-                        }
-                    } else {
-                        loginForm.submit();
-                    }
+          $.ajax({
+            url: 'validation/loginValidation.php',
+            method: 'POST',
+            data: {
+              username: username.value,
+              password: password.value
+            },
+            dataType: 'json',
+            success: function (response) {
+              if (Object.keys(response).length > 0) {
+                if (response.hasOwnProperty('username')) {
+                  usernameError.style.display = 'block';
+                  usernameError.textContent = response.username;
                 }
-            });
+                if (response.hasOwnProperty('password')) {
+                  passwordError.style.display = 'block';
+                  passwordError.textContent = response.password;
+                }
+              } else {
+                loginForm.submit();
+              }
+            }
+          });
         }
-    }
-});
-
-const registerForm = document.querySelector('.register-form');
+      }
+    });
+    const registerForm = document.querySelector('.register-form');
 
 registerForm.addEventListener('submit', (e) => {
 
@@ -183,4 +182,6 @@ registerForm.addEventListener('submit', (e) => {
         }
     }
 });
+  });
+  
 

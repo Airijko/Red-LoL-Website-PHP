@@ -52,6 +52,32 @@
         
             header("Location: Posts");
             exit;
+
+        } elseif ($_POST['command'] == "RemoveIMG") {
+            // Fetch the image file name associated with the post
+            $query = "SELECT file FROM posts WHERE id = :id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $file = $stmt->fetchColumn();
+        
+            // Delete the image file from the server directory if it exists
+            if (!empty($file)) {
+                $filePath = "images/" . $file;
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+        
+            // Update the post in the database to set file=NULL
+            $query = "UPDATE posts SET file=NULL WHERE id=:id";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+        
+            header("Location: Posts");
+            exit;
+
         } else {
             $query = "INSERT INTO posts (title, content, file, user_id) VALUES (:title, :content, :file, :user_id)";
             $stmt = $db->prepare($query);
@@ -105,6 +131,7 @@
 
 <body>
     <?php include '../navbar.php'; ?>
+    <?php include '../pages/login.php'; ?>
     <div class="container container-fluid main-container">
         <div class="row">
             <div class="col-md-2">
@@ -116,8 +143,13 @@
                 <div class="container container-lg post-container">
                     <form method="post" action="./Edit">
                         <div class="card">
+                            <?php if ($row['file'] == NULL): ?>
+                            <?php else: ?>
                             <img class="object-fit-cover" src="pages/images/<?= $row['file'] ?>" class="card-img-top"
                                 alt="<?= $row['title'] ?>">
+                            <input class="btn btn-danger" type="submit" name="command" value="RemoveIMG"
+                                onclick="return confirm('Are you sure you want to delete the image?')">
+                            <?php endif ?>
                             <div class="card-body edit-card-body">
                                 <h5>
                                     <input name="title" id="title" value="<?= $row['title']?>">

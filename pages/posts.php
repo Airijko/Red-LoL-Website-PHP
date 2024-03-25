@@ -2,8 +2,6 @@
 
     session_start();
 
-    include '../pages/login.php';
-
     require __DIR__ . '/../backend/db_connect.php';
 
     if ($_POST && isset($_POST['title']) && isset($_POST['content'])) {
@@ -24,7 +22,7 @@
     }
 
     // SORT DATA FROM DROP MENU
-    $sort_option = "date ASC"; // sets default option
+    $sort_option = "date DESC"; // sets default option
     if(isset($_GET['sort']))
     {
         if ($_GET['sort'] == "latest")
@@ -62,6 +60,7 @@
 
 <body>
     <?php include '../navbar.php'; ?>
+    <?php include '../pages/login.php'; ?>
     <div class="container container-fluid main-container">
         <div class="row">
             <div class="col-md-2 position-relative">
@@ -69,17 +68,13 @@
                     <form action="" method="GET">
                         <div class="input-group">
                             <select name="sort" class="form-control">
-                                <option value="latest"
-                                    <?php if(isset($_GET['sort']) && $_GET['sort'] == 'latest');?>>
+                                <option value="latest" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'latest');?>>
                                     Latest</option>
-                                <option value="oldest"
-                                    <?php if(isset($_GET['sort']) && $_GET['sort'] == 'oldest');?>>
+                                <option value="oldest" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'oldest');?>>
                                     Oldest</option>
-                                <option value="a-z"
-                                    <?php if(isset($_GET['sort']) && $_GET['sort'] == 'a-z');?>>
+                                <option value="a-z" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'a-z');?>>
                                     A-Z</option>>A-Z</option>
-                                <option value="z-a"
-                                    <?php if(isset($_GET['sort']) && $_GET['sort'] == 'z-a');?>>
+                                <option value="z-a" <?php if(isset($_GET['sort']) && $_GET['sort'] == 'z-a');?>>
                                     A-Z</option>
                             </select>
                             <button type="submit" class="input-group-text btn btn-primary">Sort</button>
@@ -94,8 +89,11 @@
                         <!-- fetch data from the database and loop through it -->
                         <?php while($row = $stmt->fetch()): ?>
                         <div class="card" style="padding: 10px;">
+                            <?php if ($row['file'] == NULL): ?>
+                            <?php else: ?>
                             <img class="object-fit-cover" src="pages/images/<?= $row['file'] ?>" class="card-img-top"
                                 alt="<?= $row['title'] ?>">
+                            <?php endif ?>
                             <div class="card-body">
                                 <h3 class="card-title fw-bold"><?= $row['title'] ?></h3>
                                 <p class="card-text">

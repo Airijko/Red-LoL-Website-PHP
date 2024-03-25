@@ -38,3 +38,6 @@ RewriteRule ^DeleteReview$ pages/deleteReview.php [L]
 
 # Rewrite /sort.php to /Sort
 RewriteRule ^Sort$ pages/sort.php [L]
+
+# Rewrite /management.php to /Management
+RewriteRule ^Management$ pages/management.php [L]

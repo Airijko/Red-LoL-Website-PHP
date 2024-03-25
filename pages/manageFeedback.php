@@ -1,8 +1,9 @@
 <?php
 
+    ob_start();
+
     session_start();
 
-    include '../pages/login.php';
     require_once('../backend/authenticate.php');
 
     require __DIR__ . '/../backend/db_connect.php';
@@ -24,6 +25,8 @@
 
     $stmt = $db->query("SELECT * FROM reviews");
 
+    ob_end_flush();
+
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +46,7 @@
 
 <body>
     <?php include '../navbar.php'; ?>
+    <?php include '../pages/login.php'; ?>
     <div id="container" class="container container-fluid main-container">
         <div class="rows">
             <div class="col-md-12">

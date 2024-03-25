@@ -2,8 +2,6 @@
 
     session_start();
 
-    include '../pages/login.php';
-
     require __DIR__ . '/../backend/db_connect.php';
 
     if ($_POST && isset($_POST['name']) && isset($_POST['content'])) {
@@ -42,6 +40,7 @@
 
 <body>
     <?php include '../navbar.php'; ?>
+    <?php include '../pages/login.php'; ?>
     <div id="container" class="container container-fluid main-container">
         <div class="rows">
             <div class="col-md-12">
