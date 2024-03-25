@@ -3,5 +3,9 @@
     "backend/*.php": {
       "runtime": "vercel-php@0.7.0"
     }
-  }
+  },
+  "routes": [
+    { "src": "/(.*)",  "dest": "/pages/index.php" },
+    { "src": "/css/style.css", "dest": "/css/*.css" },
+    { "src": "/js/script.js", "dest": "/js/AJAX.js" }]
 }
